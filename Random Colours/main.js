@@ -26,3 +26,14 @@ function genRandomColor(getHexCharacter){
     }
 
 }
+
+//after wandering why is nothing happening,i decided to add an event listener
+
+let btn = document.getElementById("button")
+
+btn.addEventListener("click",(event) =>{
+
+    const newColor = generateNewColor()
+    btn.style.backgroundColor=newColor
+})
+
