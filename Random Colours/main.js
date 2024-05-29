@@ -1,38 +1,28 @@
+//introducing a variable in which it contains an array of the hexadecimals.
 
+const hexCharacter = [0,1,2,3,4,5,6,7,8,9,"A","B","C","D","E","F"]
 
-function genRandomColour(){
-   const l ='0123456789ABCDEF'
-   let col ='#'
-   for(let i = 0; i < 6; i++){
-       col += l[Math.floor(Math.random() * 16)]
-   }
-   return col;
+//create a function to get a character from the array.
+//setting the parameter to index to generate numbers from 0-15.
+
+function getHexCharacter(index){
+    return hexCharacter(index)
 }
 
-// Function to toggle between light and dark mode
-function toggleDarkMode() {
-    // Get the container element with the class 'theme'
-    const container = document.querySelector('.theme');
+//represent colors using the RGB (Red,Green,Blue) scheme.
 
-    // Toggle the 'dark-mode' class on the container element
-    container.classList.toggle('dark-mode');
+function genRandomColor(getHexCharacter){
 
-    // Check if dark mode is enabled
-    const isDarkMode = container.classList.contains('dark-mode');
+    let col = "#"
 
-    // If dark mode is enabled, set CSS variables for dark mode
-    if (isDarkMode) {
-        container.style.setProperty('--background-color', '#333'); // Set background color to dark
-        container.style.setProperty('--text-color', '#fff');      // Set text color to light
-    } else {
-        // If dark mode is disabled, remove CSS variables for dark mode
-        container.style.removeProperty('--background-color'); // Remove background color property
-        container.style.removeProperty('--text-color');      // Remove text color property
+    //using a for loop to iterate through the array.
+    //use of Math.random() to generate random numbers from 0-15
+    //use of Math.floor to ensure that the number is aan integer
+
+    for(let i = 0; i < 6; i++){
+        Math.floor(Math.random * 16)
+        col += getHexCharacter(Math.floor(Math.random()* 16))
+    
     }
 
-    // You can add more CSS variables or properties to adjust other styles as needed
 }
-
-// Example: Add event listener to a button to toggle dark mode when clicked
-const toggleButton = document.getElementById('dark-mode-toggle');
-toggleButton.addEventListener('click', toggleDarkMode);
